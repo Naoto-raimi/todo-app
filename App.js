@@ -15,10 +15,10 @@ export default function App() {
         <View style={styles.container}>
             <View style={styles.itemContainer}>
                 <View style={styles.leftContainer}>
-
+                   
                 </View>
                 <View style={styles.centerContainer}>
-
+                    <TextInput style={styles.todoInput}/>
                 </View>
                 <View style={styles.rightContainer}>
                 </View>
@@ -46,11 +46,14 @@ const styles = StyleSheet.create({
         width: 60
     },
     centerContainer: {
-        backgroundColor: "red",
         flex: 1
     },
     rightContainer: {
         backgroundColor: "yellow",
         width: 60
+    },
+    todoInput: {
+        backgroundColor: "#fff",
+        fontSize: 40
     }
 });
