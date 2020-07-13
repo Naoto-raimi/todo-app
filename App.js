@@ -8,47 +8,49 @@ import {
     TextInput,
     TouchableOpacity,
 } from 'react-native'
+import {FontAwesome} from '@expo/vector-icons';
 
 export default function App() {
     return (
-        <SafeAreaView style={styles.container}>
-            <Text style={styles.headerTitle}>Todoリスト</Text>
-            <TextInput style={styles.todoInput} />
-            <TouchableOpacity style={styles.button}>
-                <Text style={styles.buttonText}>追加する</Text>
-            </TouchableOpacity>
-        </SafeAreaView>
+        <View style={styles.container}>
+            <View style={styles.itemContainer}>
+                <View style={styles.leftContainer}>
+
+                </View>
+                <View style={styles.centerContainer}>
+
+                </View>
+                <View style={styles.rightContainer}>
+                </View>
+            </View>
+        </View>
     )
 }
 
 const styles = StyleSheet.create({
-    headerTitle: {
-        textAlign: 'center',
-        fontSize: 30,
-    },
-    todoInput: {
-        backgroundColor: '#fff',
-        width: '70%',
-        alignSelf: 'center',
-        marginTop: 20,
-        padding: 10,
-        fontSize: 20,
-    },
     container: {
         backgroundColor: '#ddd',
         flex: 1,
+        alignItems: "center",
+        justifyContent: "center"
     },
-    button: {
-        backgroundColor: 'blue',
-        width: '60%',
-        alignSelf: 'center',
-        marginTop: 10,
+    itemContainer: {
+        height: 60,
+        width: "100%",
+        borderColor: "gray",
+        borderWidth: 1,
+        flexDirection: "row" 
     },
-    buttonText: {
-        color: '#fff',
-        fontSize: 20,
-        textAlign: 'center',
-        fontWeight: 'bold',
-        padding: 10,
+    leftContainer: {
+        backgroundColor: "blue",
+        width: 60
     },
-})
+    centerContainer: {
+        backgroundColor: "red",
+        flex: 1
+    },
+    rightContainer: {
+        backgroundColor: "yellow",
+        width: 60
+    }
+});
