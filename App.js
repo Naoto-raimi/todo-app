@@ -8,19 +8,18 @@ import {
     TextInput,
     TouchableOpacity,
 } from 'react-native'
-import {FontAwesome} from '@expo/vector-icons';
+import { MaterialCommunityIcons } from '@expo/vector-icons'; 
 
 export default function App() {
     return (
         <View style={styles.container}>
             <View style={styles.itemContainer}>
                 <View style={styles.leftContainer}>
-                   
+                    <MaterialCommunityIcons name="checkbox-blank-outline" size={42} color="black" />
                 </View>
-                <View style={styles.centerContainer}>
-                    <TextInput style={styles.todoInput}/>
-                </View>
+                <TextInput style={styles.todoInput}/>
                 <View style={styles.rightContainer}>
+                    <MaterialCommunityIcons name="delete-circle-outline" size={42} color="black" />
                 </View>
             </View>
         </View>
@@ -42,18 +41,23 @@ const styles = StyleSheet.create({
         flexDirection: "row" 
     },
     leftContainer: {
-        backgroundColor: "blue",
-        width: 60
+        backgroundColor: "#fff",
+        width: 60,
+        alignItems: 'center',
+        justifyContent: 'center' 
     },
     centerContainer: {
         flex: 1
     },
     rightContainer: {
-        backgroundColor: "yellow",
-        width: 60
+        backgroundColor: "#fff",
+        width: 60,
+        alignItems: 'center',
+        justifyContent: 'center'
     },
     todoInput: {
+        flex: 1,
         backgroundColor: "#fff",
-        fontSize: 40
+        fontSize: 20
     }
 });
