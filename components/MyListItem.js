@@ -1,13 +1,26 @@
 import React from 'react'
 import {
     StyleSheet,
-    Text,
     View,
-    SafeAreaView,
     TextInput,
-    TouchableOpacity,
 } from 'react-native'
 import { MaterialCommunityIcons } from '@expo/vector-icons'; 
+
+const MyListItem = (props) => {
+    return (
+        <View style={styles.itemContainer}>
+            <View style={styles.leftContainer}>
+                <MaterialCommunityIcons name="checkbox-blank-outline" size={42} color="black" />
+            </View>
+            <TextInput style={styles.todoInput} defaultValue={props.defaultValue}/>
+            <View style={styles.rightContainer}>
+                <MaterialCommunityIcons name="delete-circle-outline" size={42} color="black" />
+            </View>
+        </View>
+    )
+}
+
+export default ListItem;
 
 const styles = StyleSheet.create({
     itemContainer: {
@@ -38,19 +51,3 @@ const styles = StyleSheet.create({
         fontSize: 20
     }
 });
-
-const ListItem = (props) => {
-    return (
-        <View style={styles.itemContainer}>
-            <View style={styles.leftContainer}>
-                <MaterialCommunityIcons name="checkbox-blank-outline" size={42} color="black" />
-            </View>
-            <TextInput style={styles.todoInput} defaultValue={props.defaultValue}/>
-            <View style={styles.rightContainer}>
-                <MaterialCommunityIcons name="delete-circle-outline" size={42} color="black" />
-            </View>
-        </View>
-    )
-}
-
-export default ListItem;

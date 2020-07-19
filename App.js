@@ -1,31 +1,31 @@
-import { StatusBar } from 'expo-status-bar'
-import React from 'react'
-import {
-    StyleSheet,
-    Text,
-    View,
-    FlatList,
-    SafeAreaView
-} from 'react-native'
-import { MaterialCommunityIcons } from '@expo/vector-icons'; 
-import ListItem from './components/ListItem'
-import todos from './dummies/todos.json'
+import React, { useState, useEffect } from 'react';
+import Layout from "./components/Layout";
+import TodoList from "./components/TodoList";
+import AddTodoForm from "./components/AddTodoForm";
 
-export default function App() {
-    return (
-        <SafeAreaView style={styles.container}>
-            <FlatList
-                data={todos}
-                renderItem={({ item }) => (<ListItem defaultValue={item.defaultValue} />)}
-                keyExtractor={(item, index) => index.toString()}
-            />
-        </SafeAreaView>
+import { useInputValue, useTodos } from "./hooks/todolist";
+
+export default function App(props) {
+    const { inputValue, changeInput, clearInput } = useInputValue();
+    const { todos, addTodo, checkTodo, removeTodo } = useTodos();
+
+    const clearInputAndAddTodo = _ => {
+        clearInput();
+        addTodo(inputValue);
+    };
+
+      return (
+        <Layout>
+          <AddTodoForm
+            inputValue={inputValue}
+            changeInput={changeInput}
+            onIconPress={clearInputAndAddTodo}
+          />
+          <TodoList
+            items={todos}
+            onItemCheck={idx => checkTodo(idx)}
+            onItemRemove={idx => removeTodo(idx)}
+          />
+        </Layout>
     )
 }
-
-const styles = StyleSheet.create({
-    container: {
-        backgroundColor: '#ddd',
-        flex: 1,
-    }
-});
