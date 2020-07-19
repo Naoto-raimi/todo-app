@@ -5,11 +5,11 @@ import AddTodoForm from "./components/AddTodoForm";
 
 import { useInputValue, useTodos } from "./hooks/todolist";
 
-export default function App(props) {
+export default function App() {
     const { inputValue, changeInput, clearInput } = useInputValue();
     const { todos, addTodo, checkTodo, removeTodo } = useTodos();
 
-    const clearInputAndAddTodo = _ => {
+    const clearInputAndAddTodo = () => {
         clearInput();
         addTodo(inputValue);
     };

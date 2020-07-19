@@ -4,7 +4,6 @@ import {
     View,
 } from 'react-native'
 import { Container, Header, Body, Title, Content } from "native-base";
-import { Colors } from 'react-native/Libraries/NewAppScreen';
 
 const Layout = ({children}) => {
     return (
