@@ -3,15 +3,22 @@ import {
     StyleSheet,
     View,
 } from 'react-native'
-import { Container, Header, Body, Title, Content } from "native-base";
+import { Container, Header, Body, Title, Content, Icon, Right, Left } from "native-base";
+import { preventAutoHide } from 'expo/build/launch/SplashScreen';
 
-const Layout = ({children}) => {
+const Layout = ({children, onPress}) => {
     return (
         <Container>
             <Header style={styles.header}>
+                <Left>
+                    <Icon style={styles.icon} type="Feather" name='menu' onPress={onPress} /> 
+                </Left> 
                 <Body>
                     <Title style={styles.title}>やることリスト</Title>
-                </Body>
+                </Body> 
+                <Right>
+                    <Icon style={styles.icon} type="Feather" name='user' onPress={onPress} /> 
+                </Right>       
             </Header>
             <View style={styles.container}>
                 <Content style={styles.content}>
@@ -37,6 +44,9 @@ const styles = StyleSheet.create({
       backgroundColor: 'green',
   },
   title: {
+      color: 'white',
+  },
+  icon: {
       color: 'white',
   }
 });
