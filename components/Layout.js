@@ -10,7 +10,6 @@ import {
     Right,
     Left,
 } from 'native-base'
-import { preventAutoHide } from 'expo/build/launch/SplashScreen'
 
 const Layout = ({ children, userOnPress, menuOnPress }) => {
     return (
